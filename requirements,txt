@@ -1,1 +1,2 @@
-
+FLASK ==2.0.3
+GUNICORN == 20
