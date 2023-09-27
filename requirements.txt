@@ -1,3 +1,4 @@
 FLASK ==2.0.3
 GUNICORN == 20.0.4
 wfastcgi == 3.0.0
+pytest
