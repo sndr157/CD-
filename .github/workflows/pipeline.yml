@@ -17,8 +17,6 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: python -m pytest test_lib.py
-      - name: eching
-        run: echo "$secrets.DROPLETCDIP  $DROPLETCDIP ${{secrets.DROPLETCDIP}}"
   deploy:
     needs: run-tests
     runs-on: ubuntu-22.04
@@ -26,9 +24,9 @@ jobs:
         - name: Deploy Flask app
           uses: appleboy/ssh-action@v0.1.4
           with:
-            host: $secrets.DROPLETCDIP
-            key: $secrets.DROPLETCDSSHKEY
-            username: $secrets.DROPLETCDUSER
+            host: ${{secrets.DROPLETCDIP}}
+            key: ${{secrets.DROPLETCDSSHKEY}}
+            username: ${{secrets.DROPLETCDUSER}}
             script: |
               ~/.deploy.sh
     # steps:
