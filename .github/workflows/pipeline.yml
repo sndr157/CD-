@@ -18,25 +18,25 @@ jobs:
       - name: Run tests
         run: python -m pytest test_lib.py
       - name: Print Ip
-        run: echo " ip is ${{secrets.DROPLETCDIP}}"
+        run: echo " ip is ${{secrets.DROPLETCDIP}} and varibale $DROPLETCDIP ${{vars.DROPLETCDIP}}"
   deploy:
     needs: run-tests
     runs-on: ubuntu-22.04
     steps:
         - name: Deploy Flask app
-          # uses: appleboy/ssh-action@v0.1.4
-          # with:
-          #   host: ${{secrets.DROPLETCDIP}}
-          #   key: ${{secrets.DROPLETCDSSHKEY}}
-          #   username: ${{secrets.DROPLETCDUSER}}
-          run: |
-            mkdir ~/.ssh
-            touch ~/.ssh/known_hosts
-            chmod 700 ~/.ssh
-            chmod 600 ~/.ssh/known_hosts
-            ssh-keyscan ${{secrets.DROPLETCDIP}} >> ~/.ssh/known_hosts
-            ssh -i <(echo "${{secrets.DROPLETCDSSHKEY}}") ${{secrets.DROPLETCDUSER}}@${{secrets.DROPLETCDIP}}
-            ~/deploy.sh
+          uses: appleboy/ssh-action@v0.1.4
+          with:
+            host: ${{vars.DROPLETCDIP}}
+            key: ${{vars.DROPLETCDSSHKEY}}
+            username: ${{vars.DROPLETCDUSER}}
+          # run: |
+          #   mkdir ~/.ssh
+          #   touch ~/.ssh/known_hosts
+          #   chmod 700 ~/.ssh
+          #   chmod 600 ~/.ssh/known_hosts
+          #   ssh-keyscan ${{secrets.DROPLETCDIP}} >> ~/.ssh/known_hosts
+          #   ssh -i <(echo "${{secrets.DROPLETCDSSHKEY}}") ${{secrets.DROPLETCDUSER}}@${{secrets.DROPLETCDIP}}
+          #   ~/deploy.sh
             
     # steps:
     #     - name: Deploy
