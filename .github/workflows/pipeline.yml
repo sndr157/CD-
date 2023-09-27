@@ -17,6 +17,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: python -m pytest test_lib.py
+      - name: Print Ip
+        run: echo " ip is ${{secrets.DROPLETCDIP}}"
   deploy:
     needs: run-tests
     runs-on: ubuntu-22.04
