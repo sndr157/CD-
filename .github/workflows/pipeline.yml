@@ -21,13 +21,22 @@ jobs:
     needs: run-tests
     runs-on: ubuntu-22.04
     steps:
-        - name: Deploy
-          run: | 
-            mkdir ~/.ssh
-            touch ~/.ssh/known_hosts
-            chmod 700 ~/.ssh
-            chmod 600 ~/.ssh/known_hosts
-            ssh-keyscan $dropletCdIp >> ~/.ssh/known_hosts
-            apt-get update
-            apt install -y sshpass
-            sshpass -p "$dropletCdPassword" ssh -o StrictHostKeyChecking=no -tt $dropletCdUser@$dropletCdIp '~/deploy.sh'
+        - name: Deploy Flask app
+          uses: appleboy/ssh-action@v0.1.4
+          with:
+            host: $DROPLETCDIP
+            key: $DROPLETCDSSHKEY
+            username: $DROPLETCDUSER
+            script: |
+              ~/.deploy.sh
+    # steps:
+    #     - name: Deploy
+    #       run: | 
+    #         mkdir ~/.ssh
+    #         touch ~/.ssh/known_hosts
+    #         chmod 700 ~/.ssh
+    #         chmod 600 ~/.ssh/known_hosts
+    #         ssh-keyscan $dropletCdIp >> ~/.ssh/known_hosts
+    #         apt-get update
+    #         apt install -y sshpass
+    #         sshpass -p "$dropletCdPassword" ssh -o StrictHostKeyChecking=no -tt $dropletCdUser@$dropletCdIp '~/deploy.sh'
