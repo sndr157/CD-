@@ -1,0 +1,33 @@
+name: Run test and deploy
+
+# Run this workflow whenever something new is pushed.
+on: push
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: python -m pytest test_lib.py
+  deploy:
+    needs: run-tests
+    runs-on: ubuntu-22.04
+    steps:
+        - name: Deploy
+          run: | 
+            mkdir ~/.ssh
+            touch ~/.ssh/known_hosts
+            chmod 700 ~/.ssh
+            chmod 600 ~/.ssh/known_hosts
+            ssh-keyscan $dropletCdIp >> ~/.ssh/known_hosts
+            apt-get update
+            apt install -y sshpass
+            sshpass -p "$dropletCdPassword" ssh -o StrictHostKeyChecking=no -tt $dropletCdUser@$dropletCdIp '~/deploy.sh'
