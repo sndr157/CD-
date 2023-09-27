@@ -29,6 +29,7 @@ jobs:
             username: ${{secrets.DROPLETCDUSER}}
             script: |
               ~/deploy.sh
+            
     # steps:
     #     - name: Deploy
     #       run: | 
