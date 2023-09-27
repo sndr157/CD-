@@ -24,13 +24,14 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
         - name: Deploy Flask app
-          uses: appleboy/ssh-action@v0.1.4
-          with:
-            host: ${{secrets.DROPLETCDIP}}
-            key: ${{secrets.DROPLETCDSSHKEY}}
-            username: ${{secrets.DROPLETCDUSER}}
-            script: |
-              ~/deploy.sh
+          # uses: appleboy/ssh-action@v0.1.4
+          # with:
+          #   host: ${{secrets.DROPLETCDIP}}
+          #   key: ${{secrets.DROPLETCDSSHKEY}}
+          #   username: ${{secrets.DROPLETCDUSER}}
+          run: |
+            ssh -i <(echo "${{secrets.DROPLETCDSSHKEY}}") ${{secrets.DROPLETCDUSER}}@${{secrets.DROPLETCDIP}}
+            ~/deploy.sh
             
     # steps:
     #     - name: Deploy
