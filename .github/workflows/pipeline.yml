@@ -24,9 +24,9 @@ jobs:
         - name: Deploy Flask app
           uses: appleboy/ssh-action@v0.1.4
           with:
-            host: $DROPLETCDIP
-            key: $DROPLETCDSSHKEY
-            username: $DROPLETCDUSER
+            host: $secrets.DROPLETCDIP
+            key: $secrets.DROPLETCDSSHKEY
+            username: $secrets.DROPLETCDUSER
             script: |
               ~/.deploy.sh
     # steps:
