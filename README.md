@@ -1,7 +1,6 @@
 # Contineous Deployment with GitHub Actions to a Flask Application on a Droplet
 ---
 
-
 This project chronicles an endeavor to implement a robust Continuous Integration/Continuous Deployment (CI/CD) pipeline by leveraging the efficient capabilities provided by GitHub Actions and a Virtual Private Server (VPS) on DigitalOcean. The complexities of the project included mastering the orchestration and interconnected processes of multiple technological systems.
 
 The initial phase involved the establishment of the foundational elements: deploying a Droplet on DigitalOcean, understanding the rudiments of GitHub Actions, and successfully running a Flask application on the said Droplet.
