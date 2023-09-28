@@ -1,10 +1,17 @@
 # Contineous Deployment with GitHub Actions to a Flask Application on a Droplet
 ---
-I ran into quite some problems while doing this assignment. Most of them really had to do with how a lot of the systems run and communicate with each other. I learned a lot from this.
 
-Before starting this assignment I had already successfully walked through the previous theory and exercises. So I had my Droplet running, understood the basics of GitHub Actions and had managed to succesfully run a flask application on my Droplet. However, combining all of these in a smooth CICD pipeline was quite the challenge. I tried to tackle this step by step, while continuously checking my results.  
- 
-First I extended my previous .yaml file (which consisted of a run-tests section) with a 'deploy' section that would only deploy if the app passed the tests. I had to figure out how to log in to my Droplet over SSH without a password. For this I used the secrets option in GitHub while following a small tutorial online about properly registering your keys in the Droplet [medium] (https://medium.com/swlh/how-to-deploy-your-application-to-digital-ocean-using-github-actions-and-save-up-on-ci-cd-costs-74b7315facc2).
+
+This project chronicles an endeavor to implement a robust Continuous Integration/Continuous Deployment (CI/CD) pipeline by leveraging the efficient capabilities provided by GitHub Actions and a Virtual Private Server (VPS) on DigitalOcean. The complexities of the project included mastering the orchestration and interconnected processes of multiple technological systems.
+
+The initial phase involved the establishment of the foundational elements: deploying a Droplet on DigitalOcean, understanding the rudiments of GitHub Actions, and successfully running a Flask application on the said Droplet.
+
+Subsequently, the .yaml file was systematically extended from a plain run-test section to incorporate a 'deploy' module. This strategic augmentation was designed to trigger the deployment process only upon successful completion of predefined tests, thereby safeguarding system integrity and reliability.
+
+A noteworthy challenge faced during the project was the configuration of an SSH login to the Droplet, bypassing the traditional necessity for a password. This issue was resolved by utilizing GitHub's secrets capability, in conjunction with an online tutorial on [medium](https://medium.com/swlh/how-to-deploy-your-application-to-digital-ocean-using-github-actions-and-save-up-on-ci-cd-costs-74b7315facc2), that provided step-by-step guidance for optimal registration of keys with the Droplet.
+
+In essence, this project served not only as an exploration of how to fuse diverse technological components into a functional CI/CD pipeline but also offered invaluable insights into the complexities of managing a VPS-based project environment with tools such as DigitalOcean and GitHub Actions.
+
 
 I registered the following 3 secrets:
 ![](/Images/secrets.png?raw=true)
