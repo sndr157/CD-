@@ -29,7 +29,7 @@ Implementing the SSH login to our DigitalOcean droplet without the need for a pa
 
 ### 🔐 Solution: 
 
-MY second challenge was to extend our .yaml file. Initially, its sole function was running tests, so we extended it to include a 'deploy' module. This change ensured deployments were triggered only after successful test runs, thereby maintaining the system's stability.
+My second challenge was to extend our .yaml file. Initially, its sole function was running tests, so we extended it to include a 'deploy' module. This change ensured deployments were triggered only after successful test runs, thereby maintaining the system's stability.
 
 ### 🔧 Components:
 
