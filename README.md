@@ -1,15 +1,23 @@
 # Contineous Deployment with GitHub Actions to a Flask Application on a Droplet
 ---
 
-This project chronicles an endeavor to implement a robust Continuous Integration/Continuous Deployment (CI/CD) pipeline by leveraging the efficient capabilities provided by GitHub Actions and a Virtual Private Server (VPS) on DigitalOcean. The complexities of the project included mastering the orchestration and interconnected processes of multiple technological systems.
+This project recapitulates the intricate journey of implementing a robust Continuous Integration/Continuous Deployment (CI/CD) pipeline, utilizing GitHub Actions' power and a DigitalOcean hosted Virtual Private Server (VPS). The challenge lay not just in mastering multiple technological systems but also in architecting their interconnected processes to function seamlessly.
 
-The initial phase involved the establishment of the foundational elements: deploying a Droplet on DigitalOcean, understanding the rudiments of GitHub Actions, and successfully running a Flask application on the said Droplet.
+The adventure started with three crucial steps 🚶:
 
-Subsequently, the .yaml file was systematically extended from a plain run-test section to incorporate a 'deploy' module. This strategic augmentation was designed to trigger the deployment process only upon successful completion of predefined tests, thereby safeguarding system integrity and reliability.
+1. Deploying a DigitalOcean Droplet ☁️. 
+2. Understanding the essentials of GitHub Actions 💡.
+3. Successfully deploying a Flask application 🚀 on the VPS.
 
-A noteworthy challenge faced during the project was the configuration of an SSH login to the Droplet, bypassing the traditional necessity for a password. This issue was resolved by utilizing GitHub's secrets capability, in conjunction with an online tutorial on [medium](https://medium.com/swlh/how-to-deploy-your-application-to-digital-ocean-using-github-actions-and-save-up-on-ci-cd-costs-74b7315facc2), that provided step-by-step guidance for optimal registration of keys with the Droplet.
+As much as it was an exciting expedition, it was equally not short of complexities. To put a finger on one, configuring an SSH login to the VPS without relying on a password login was a steep hill to climb🧗‍. However, thanks to GitHub's secrets feature and a detailed [Medium article](https://medium.com/@avilash/google-cloud-run-deploy-application-via-ci-cd-pipeline-with-github-actions-6a96795563d), configuring an SSH key-login became approachable.
 
-In essence, this project served not only as an exploration of how to fuse diverse technological components into a functional CI/CD pipeline but also offered invaluable insights into the complexities of managing a VPS-based project environment with tools such as DigitalOcean and GitHub Actions.
+Another primary task was refining the .yaml file, extending it from running simple tests to efficiently incorporating a 'deploy' module. This augmentation was not just a strategic move but a necessity, ensuring that only after successful test completion, the deployment process is triggered. The transition added a strong veil of reliability, preventing any system instability.
+
+Notwithstanding the challenges, we leveraged a [YouTube tutorial video](https://www.youtube.com/watch?v=YFBRVJPhDGY&t=421s) on deploying Flask apps that proved to be a helpful guide to lighting our path. Hours of extensive online research, brainstorming, and testing went into crafting this fusion of technology 📚🔍.
+
+In the grand scheme of things, the project served as a great exploration venture into fusing diverse technological entities into a functional CI/CD pipeline while providing an in-depth understanding of managing a VPS-based project environment using tools like DigitalOcean and GitHub Actions.
+
+A wrap-up would be incomplete without acknowledging that such projects, far from being a walk in the park, fire up the neurons and leave one with a rich wealth of knowledge and experience 🧠💡. Thus ensuring that each stumbling block only opens up doors to further exploration.
 
 # 🎯 Issues & Solutions: Implementing a CI/CD Pipeline with GitHub Actions on DigitalOcean
 
