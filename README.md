@@ -11,6 +11,43 @@ A noteworthy challenge faced during the project was the configuration of an SSH 
 
 In essence, this project served not only as an exploration of how to fuse diverse technological components into a functional CI/CD pipeline but also offered invaluable insights into the complexities of managing a VPS-based project environment with tools such as DigitalOcean and GitHub Actions.
 
+# 🎯 Issues & Solutions: Implementing a CI/CD Pipeline with GitHub Actions on DigitalOcean
+
+## 1️⃣ Issue: SSH Login to DigitalOcean Droplet 
+
+### 🔐 Solution: 
+
+Implementing the SSH login to our DigitalOcean droplet without the need for a password posed a significant challenge. We leveraged GitHub Secrets to securely store our SSH private key, eliminating the need for password-based authentication. A Medium tutorial was utilized to guide us through the process of registering the SSH keys with the Droplet.
+
+### 🔧 Components: 
+
+   - 🔑 GitHub Secrets : Provided a secure storage for our SSH private key.
+   - 📒 Medium Tutorial: Offered comprehensive step-by-step instructions for configuring the SSH login.
+   - 🌊 DigitalOcean Droplet: Served as our VPS where we configured the SSH login.
+
+## 2️⃣ Issue: Configuration and Extension of .yaml File 
+
+### 🔐 Solution: 
+
+Our second challenge was to extend our .yaml file. Initially, its sole function was running tests, so we extended it to include a 'deploy' module. This change ensured deployments were triggered only after successful test runs, thereby maintaining the system's stability.
+
+### 🔧 Components:
+
+   - 📑 .yaml File: The document used by GitHub Actions to determine our workflow.
+   - ⚡ GitHub Actions: The CI/CD tool we leveraged to automate our deployment pipeline.
+   - 🔍 Testing Suite: Executed before the deploy module to ensure the code works as intended before deployment.
+
+## 3️⃣ Issue: Automatic Code Pull from GitHub
+
+### 🔐 Solution: 
+
+The third issue, revolved around keeping our Droplet updated with the latest code changes from our GitHub repo. To ensure automatic code pulls, we added the droplet's public key to the GitHub's SSH keys. This allowed for automatic code pulls each time a new commit was pushed to our repo.
+
+### 🔧 Components: 
+
+   - 📚 GitHub Repo: The repository that houses our Flask app's codebase.
+   - 🖥️ Bash Script: Run on our Droplet, this script pulls the latest GitHub code updates and restarts the Flask service.
+   - 🔐 Server's Public Key: Authenticated our Droplet with GitHub, allowing for automatic code pulls.
 
 I registered the following 3 secrets:
 ![](/Images/secrets.png?raw=true)
