@@ -1,6 +1,4 @@
 name: Run test and deploy
-
-# Run this workflow whenever something new is pushed.
 on: push
 
 jobs:
@@ -17,8 +15,6 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: python -m pytest test_lib.py
-      - name: Print Ip
-        run: echo " ip is ${{secrets.DROPLETCDIP}} and varibale $DROPLETCDIP ${{vars.HOST}}"
   deploy:
     needs: run-tests
     runs-on: ubuntu-22.04
@@ -32,23 +28,3 @@ jobs:
             port: 22
             script: |
               ~/deploy.sh
-          # run: |
-          #   mkdir ~/.ssh
-          #   touch ~/.ssh/known_hosts
-          #   chmod 700 ~/.ssh
-          #   chmod 600 ~/.ssh/known_hosts
-          #   ssh-keyscan ${{secrets.DROPLETCDIP}} >> ~/.ssh/known_hosts
-          #   ssh -i <(echo "${{secrets.DROPLETCDSSHKEY}}") ${{secrets.DROPLETCDUSER}}@${{secrets.DROPLETCDIP}}
-          #   ~/deploy.sh
-            
-    # steps:
-    #     - name: Deploy
-    #       run: | 
-    #         mkdir ~/.ssh
-    #         touch ~/.ssh/known_hosts
-    #         chmod 700 ~/.ssh
-    #         chmod 600 ~/.ssh/known_hosts
-    #         ssh-keyscan $dropletCdIp >> ~/.ssh/known_hosts
-    #         apt-get update
-    #         apt install -y sshpass
-    #         sshpass -p "$dropletCdPassword" ssh -o StrictHostKeyChecking=no -tt $dropletCdUser@$dropletCdIp '~/deploy.sh'
