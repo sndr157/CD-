@@ -1,5 +1,5 @@
 FLASK ==2.0.3
 GUNICORN == 20.0.4
-UBUNTY == 22.04
+UBUNTU == 22.04
 wfastcgi == 3.0.0
 pytest
