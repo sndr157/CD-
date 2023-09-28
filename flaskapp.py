@@ -6,10 +6,10 @@ from flask import Flask
 app = Flask(__name__)
 
 # Assign a function to be called when the path `/` is requested
-@app.route('/api/')
+@app.route('/')
 def index():
     return 'Hello, COW!'
 
-@app.route('/api/cow')
+@app.route('/cow')
 def cow():
     return 'MOoooOo MoooooOOoOo!'
