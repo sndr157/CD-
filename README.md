@@ -34,3 +34,9 @@ ssh-keygen
 ---
 
 ![](/Images/service.png?raw=true)
+
+
+
+# Deployment (cicd)
+---
+![](/Images/cicd.png?raw=true)
