@@ -29,7 +29,7 @@ Implementing the SSH login to our DigitalOcean droplet without the need for a pa
 
 ### 🔐 Solution: 
 
-Our second challenge was to extend our .yaml file. Initially, its sole function was running tests, so we extended it to include a 'deploy' module. This change ensured deployments were triggered only after successful test runs, thereby maintaining the system's stability.
+MY second challenge was to extend our .yaml file. Initially, its sole function was running tests, so we extended it to include a 'deploy' module. This change ensured deployments were triggered only after successful test runs, thereby maintaining the system's stability.
 
 ### 🔧 Components:
 
@@ -41,13 +41,14 @@ Our second challenge was to extend our .yaml file. Initially, its sole function 
 
 ### 🔐 Solution: 
 
-The third issue, revolved around keeping our Droplet updated with the latest code changes from our GitHub repo. To ensure automatic code pulls, we added the droplet's public key to the GitHub's SSH keys. This allowed for automatic code pulls each time a new commit was pushed to our repo.
+The third issue revolved around keeping our Droplet updated with the latest code changes from our GitHub repo. To ensure automatic code pulls, we added the droplet's public key to the GitHub's SSH keys. This allowed for automatic code pulls each time a new commit was pushed to our repo.
 
 ### 🔧 Components: 
 
    - 📚 GitHub Repo: The repository that houses our Flask app's codebase.
    - 🖥️ Bash Script: Run on our Droplet, this script pulls the latest GitHub code updates and restarts the Flask service.
    - 🔐 Server's Public Key: Authenticated our Droplet with GitHub, allowing for automatic code pulls.
+     
 
 I registered the following 3 secrets:
 ![](/Images/secrets.png?raw=true)
